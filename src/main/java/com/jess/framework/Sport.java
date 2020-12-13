@@ -2,7 +2,7 @@ package com.jess.framework;
 
 public interface Sport {
 
-    public void update();
+    void update();
 
-    public void render();
+    void render();
 }
