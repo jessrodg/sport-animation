@@ -13,31 +13,28 @@ import static org.hamcrest.Matchers.greaterThan;
 public class BadmintonTest {
 
     Badminton badminton;
-    VelocityVector velocity;
 
     @Before
     public void setup() {
 
-        Position initialPosition = new Position(1,2,-30);
-        velocity = new VelocityVector(4,5,6);
-        badminton = new Badminton(1000, initialPosition, velocity);
+        badminton = new Badminton(1000, 1,2,-30, 4,5,6);
     }
 
     @Test
     public void shuttleMovesOnce() {
         badminton.update();
-        assertThat(badminton.getPosition().getX(), equalTo(5.0));
-        assertThat(badminton.getPosition().getY(), equalTo(7.0));
-        assertThat(badminton.getPosition().getZ(), equalTo(-24.0));
+        assertThat(badminton.getShuttlePosition_x(), equalTo(5.0));
+        assertThat(badminton.getShuttlePosition_y(), equalTo(7.0));
+        assertThat(badminton.getShuttlePosition_z(), equalTo(-24.0));
     }
 
     @Test
     public void shuttleMovesTwice() {
         badminton.update();
         badminton.update();
-        assertThat(badminton.getPosition().getX(), equalTo(9.0));
-        assertThat(badminton.getPosition().getY(), equalTo(12.0));
-        assertThat(badminton.getPosition().getZ(), equalTo(-18.0));
+        assertThat(badminton.getShuttlePosition_x(), equalTo(9.0));
+        assertThat(badminton.getShuttlePosition_y(), equalTo(12.0));
+        assertThat(badminton.getShuttlePosition_z(), equalTo(-18.0));
     }
 
     @Test
